@@ -3,6 +3,7 @@ import subprocess
 import discord
 import asyncio
 import KoalaTools as Tools
+import git
 import re
 
 
@@ -55,5 +56,5 @@ async def on_ready():
     print('Connected')
     await Koala.logout()
 
-Koala.run(process.env.AUTH_TOKEN)
+Koala.run(os.environ['AUTH_TOKEN'])
 
