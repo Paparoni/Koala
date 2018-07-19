@@ -12,9 +12,8 @@ commandIdentifier = "$"
 async def on_message(message):
 # Checks if the message came from Koala himself, if so, do nothing. :)
     if message.author == Koala.user:
-        return
-
-
+        return ''
+    
 @Koala.event
 async def on_ready():
     print('Connected')
