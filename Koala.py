@@ -10,7 +10,7 @@ import os
 import socket
 
 sock = socket.socket
-sock.bind(os.environ['IP'], os.environ['PORT'])
+sock.bind('', os.environ['PORT'])
 
 
 
