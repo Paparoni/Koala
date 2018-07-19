@@ -4,6 +4,7 @@ import discord
 import asyncio
 import KoalaTools as Tools
 import re
+import os
 
 
 # Running install as a subprocess as pip.main() is no longer supported. Eliminates the need for requirements.txt
