@@ -6,6 +6,7 @@ import json
 from PIL import Image
 import urllib.request
 import shutil
+import os
 
 
 
