@@ -3,7 +3,6 @@ import subprocess
 import discord
 import asyncio
 import KoalaTools as Tools
-import git
 import re
 
 
