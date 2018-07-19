@@ -2,7 +2,6 @@ import pip
 import subprocess
 import discord
 import asyncio
-import KoalaTools as Tools
 import re
 import os
 
@@ -18,10 +17,6 @@ async def on_message(message):
     if message.author == Koala.user:
         return
 
-# Detects if the message is a greeting and just says hello back
-    if Tools.isGreeting(message):
-        msg_txt = 'Hello {0.author.mention}'.format(message)
-        await Koala.send_message(message.channel, msg_txt)
 
 @Koala.event
 async def on_ready():
