@@ -7,6 +7,10 @@ from PIL import Image
 import urllib.request
 import shutil
 import os
+import socket
+
+sock = socket.socket
+sock.bind(os.environ['IP'], os.environ['PORT'])
 
 
 
@@ -100,6 +104,7 @@ async def on_message(message):
 @Koala.event
 async def on_ready():
     print('Connected')
+
 
 
 Koala.run(os.environ['AUTH_TOKEN'])
