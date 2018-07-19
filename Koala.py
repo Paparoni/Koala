@@ -9,8 +9,8 @@ import shutil
 import os
 import socket
 
-sock = socket.socket
-sock.bind('', os.environ['PORT'])
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.bind(('', os.environ['PORT']))
 
 
 
