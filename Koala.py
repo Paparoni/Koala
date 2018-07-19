@@ -25,7 +25,7 @@ async def on_message(message):
 # Detects if the message is a greeting and just says hello back
     if Tools.isGreeting(message):
         msg_txt = 'Hello {0.author.mention}'.format(message)
-        await Koala.send_message(message.channel, msg_txt
+        await Koala.send_message(message.channel, msg_txt)
 
 @Koala.event
 async def on_ready():
