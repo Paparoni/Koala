@@ -1,8 +1,5 @@
-import pip
-import subprocess
 import discord
 import asyncio
-import re
 import os
 
 # Getting into the good stuff
