@@ -19,12 +19,7 @@ async def on_message(message):
     # we do not want the bot to reply to itself
     if message.author == Koala.user:
         return
-
-        # Detects if the message is a greeting and just says hello back
-    if Tools.isGreeting(message):
-        msg_txt = 'Hello {0.author.mention}'.format(message)
-        await Koala.send_message(message.channel, msg_txt)
-
+        
     # Gets the time the message was sent
     delDate = time.strftime("[%H:%M:%S]", time.localtime())
     # Logging server messages :)
