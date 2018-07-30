@@ -11,7 +11,7 @@ import time
 
 
 Koala = discord.Client()
-commandIdentifier = "$"
+commandIdentifier = "~"
 MessageLog = []
 BotAdmins = ["big daddy", "bob duncan"]
 @Koala.event
@@ -19,7 +19,7 @@ async def on_message(message):
     # we do not want the bot to reply to itself
     if message.author == Koala.user:
         return
-        
+
     # Gets the time the message was sent
     delDate = time.strftime("[%H:%M:%S]", time.localtime())
     # Logging server messages :)
@@ -32,7 +32,7 @@ async def on_message(message):
         command = Tools.removeStr(message.content, commandIdentifier)
         # Gets the name of the person that used the command
         commandUser = message.author
-
+        commandServer = message.channel.server
         # Gets the text after the spaces for the command purpose
         if len(message.content.split(' ')) == 2:
             command_index_1 = message.content.split(' ')[1]
@@ -155,10 +155,24 @@ async def on_message(message):
                 await Koala.send_file(commandUser, date+'_messagelog.txt')
             else:
                 await Koala.send_message(message.channel, "You don't have permission to use this command.")
+        elif command == 'mute':
+            target = message.mentions[0]
+            if "command_index_2" in locals():
+                reason = command_index_2
+            else:
+                reason = "None"
+            
+            if commandUser.permissions_in(message.channel).administrator == True:
+                if target.permissions_in(message.channel).administrator == True:
+                    await Koala.send_message(message.channel, "You fool, you can't mute an admin.")
+                else:
+                    override_perms = discord.PermissionOverwrite()
+                    override_perms.send_messages = False
+                    await Koala.edit_channel_permissions(message.channel, target, override_perms)
+                    await Koala.send_message(message.channel, "{0} muted {1} Reason: {2}".format(commandUser, target.name, reason))
 @Koala.event
 async def on_ready():
     print('Connected')
-
 
 Koala.run(os.environ['AUTH_TOKEN'])
 
