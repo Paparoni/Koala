@@ -169,7 +169,7 @@ async def on_message(message):
                     override_perms = discord.PermissionOverwrite()
                     override_perms.send_messages = False
                     await Koala.edit_channel_permissions(message.channel, target, override_perms)
-                    await Koala.send_message(message.channel, "{0} muted {1} Reason: {2}".format(commandUser, target.name, reason))
+                    await Koala.send_message(message.channel, "{0} muted {1} Reason: {2}".format(commandUser.name, target.name, reason))
 @Koala.event
 async def on_ready():
     print('Connected')
